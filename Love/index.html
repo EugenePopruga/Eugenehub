@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прости меня ❤</title>
+
+    <!-- Рукописный шрифт Caveat (поддерживает русский) + обычный Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <p class="to-whom">Моей любимой Соне</p>
+        <h1>Прости меня</h1>
+
+        <div class="letter">
+            <p>Я был неправ — и признаю это честно,
+               без «но» и «если». Я обидел человека,
+               который дороже мне всего на свете,
+               и мне по-настоящему жаль.</p>
+
+            <p>Мне жаль не потому, что мы поссорились.
+               А потому, что я причинил боль тебе —
+               человеку, чья улыбка делает каждый
+               мой день лучше.</p>
+
+            <p>Я не идеален. Но я готов учиться,
+               меняться и становиться лучше —
+               ради тебя. Ради нас.</p>
+
+            <p class="signature">— твой Любименький ❤</p>
+        </div>
+
+        <p class="question">Ты меня простишь?</p>
+
+        <div class="buttons">
+            <!-- Сердце-кнопка «Да» -->
+            <button id="yesBtn" class="heart-btn" aria-label="Да">
+                <span>Да</span>
+            </button>
+
+            <!-- Убегающая кнопка «Нет» -->
+            <button id="noBtn" class="no-btn">Нет</button>
+        </div>
+    </div>
+
+    <!-- Экран празднования (скрыт до клика по «Да») -->
+    <div id="celebration" class="celebration hidden">
+        <div class="celebration-inner">
+            <p class="big-heart">❤️</p>
+            <h2>Ура-а-а!</h2>
+            <p>Ты — лучшее, что есть в моей жизни.<br>
+               Обещаю беречь тебя и твоё сердце.</p>
+            <p class="small">(и я официально должен тебе обнимашки
+               и что-нибудь вкусное)</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

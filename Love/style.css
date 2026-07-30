@@ -1,0 +1,208 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 50%, #c084d8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;          /* чтобы убегающая кнопка не создавала прокрутку */
+    padding: 20px;
+    user-select: none;
+}
+
+/* === Плавающие сердечки на фоне (создаются скриптом) === */
+.bg-heart {
+    position: fixed;
+    bottom: -40px;
+    color: rgba(255, 255, 255, 0.45);
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(-115vh) rotate(25deg); opacity: 0; }
+}
+
+/* === Открытка === */
+.card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    max-width: 560px;
+    width: 100%;
+    padding: 45px 40px 60px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(190, 60, 110, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.to-whom { font-family: 'Caveat', cursive; font-size: 28px; color: #b33951; }
+
+h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 56px;
+    color: #8e2a48;
+    margin-bottom: 20px;
+}
+
+/* === Текст письма === */
+.letter p {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    line-height: 1.45;
+    color: #5c2a3d;
+    margin-bottom: 14px;
+}
+
+.signature { text-align: right; color: #b33951; font-weight: 600; }
+
+.question {
+    font-family: 'Caveat', cursive;
+    font-size: 38px;
+    font-weight: 700;
+    color: #8e2a48;
+    margin: 25px 0 45px;
+}
+
+/* === Блок кнопок === */
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    min-height: 170px;
+}
+
+/* === Сердце-кнопка «Да» ===
+   Классический приём CSS-сердца: квадрат, повёрнутый на 45°,
+   + два круга сверху и слева (псевдоэлементы) */
+.heart-btn {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: #ff2e63;
+    border: none;
+    cursor: pointer;
+    transform: rotate(45deg);
+    box-shadow: 0 0 35px rgba(255, 46, 99, 0.55);
+    animation: heartbeat 1.4s ease-in-out infinite;
+}
+
+.heart-btn::before,
+.heart-btn::after {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: #ff2e63;
+    border-radius: 50%;
+}
+
+.heart-btn::before { top: -55px; left: 0; }
+.heart-btn::after  { top: 0; left: -55px; }
+
+/* Надпись «Да» — разворачиваем обратно, чтобы текст был ровным */
+.heart-btn span {
+    position: absolute;
+    z-index: 2;
+    left: 28px;
+    top: 28px;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    color: #fff;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 32px;
+    pointer-events: none;
+}
+
+/* Пульс «тук-тук», как настоящее сердцебиение.
+   rotate(45deg) повсюду обязателен — иначе сердце «развернётся» */
+@keyframes heartbeat {
+    0%, 100% { transform: rotate(45deg) scale(1); }
+    14%      { transform: rotate(45deg) scale(1.12); }
+    28%      { transform: rotate(45deg) scale(1); }
+    42%      { transform: rotate(45deg) scale(1.12); }
+    70%      { transform: rotate(45deg) scale(1); }
+}
+
+/* === Кнопка «Нет» === */
+.no-btn {
+    padding: 14px 44px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #8e8e9e;
+    background: #ffffff;
+    border: 2px solid #d9d9e3;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+/* Режим «побега»: кнопка становится свободной и плавно ускользает */
+.no-btn.escaping {
+    position: fixed;
+    z-index: 12;
+    transition: left 0.35s ease, top 0.35s ease;
+}
+
+/* === Экран празднования === */
+.celebration {
+    position: fixed;
+    inset: 0;
+    background: rgba(142, 42, 72, 0.35);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.celebration.hidden { display: none; }
+
+.celebration-inner {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 480px;
+    margin: 20px;
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.3); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.big-heart { font-size: 72px; display: inline-block; animation: beat 1.2s infinite; }
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    20% { transform: scale(1.25); }
+    35% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.celebration h2 { font-family: 'Caveat', cursive; font-size: 46px; color: #8e2a48; margin: 10px 0 15px; }
+.celebration-inner p { font-size: 18px; color: #5c2a3d; line-height: 1.6; }
+.celebration .small { font-size: 14px; color: #a06b7d; margin-top: 15px; }
+
+/* === Сердечки дождя на экране празднования === */
+.rain-heart {
+    position: fixed;
+    top: -50px;
+    z-index: 101;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to { transform: translateY(115vh) rotate(360deg); }
+}
