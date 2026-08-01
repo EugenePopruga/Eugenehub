@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALAGA — Космический шутер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1 class="logo">GALAGA</h1>
+
+    <div id="gameContainer">
+        <!-- Игровое поле 480×640 пикселей -->
+        <canvas id="game" width="480" height="640"></canvas>
+
+        <!-- Панель состояния поверх игры -->
+        <div id="hud">
+            <div>СЧЁТ <span id="score">0</span></div>
+            <div>ВОЛНА <span id="wave">1</span></div>
+            <div id="lives">❤❤❤</div>
+        </div>
+        <div id="weapon"></div>
+
+        <!-- Стартовый экран -->
+        <div id="menuScreen" class="overlay">
+            <h2>КОСМИЧЕСКИЙ ШТУРМ</h2>
+            <p>Управление: ← → — движение, ПРОБЕЛ — огонь</p>
+            <p class="small">Бонусы: <b>R</b> — скорострельность,
+               <b>T</b> — тройной залп, <b>L</b> — лазер, <b>+1</b> — жизнь</p>
+            <button id="startBtn">НАЧАТЬ ИГРУ</button>
+            <h3>🏆 Таблица рекордов</h3>
+            <ol id="highScoresMenu" class="highscores"></ol>
+        </div>
+
+        <!-- Экран проигрыша -->
+        <div id="gameOverScreen" class="overlay hidden">
+            <h2>ИГРА ОКОНЧЕНА</h2>
+            <p>Ваш счёт: <span id="finalScore">0</span></p>
+            <h3>🏆 Таблица рекордов</h3>
+            <ol id="highScoresEnd" class="highscores"></ol>
+            <button id="restartBtn">ИГРАТЬ СНОВА</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

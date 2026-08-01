@@ -1,0 +1,146 @@
+/* === Общее === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at top, #0d0d2b 0%, #050510 60%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    color: #e0ffff;
+    padding: 20px;
+}
+
+/* === Пульсирующий неоновый логотип === */
+.logo {
+    font-size: 48px;
+    letter-spacing: 12px;
+    color: #00ffea;
+    margin-bottom: 15px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00ffea, 0 0 25px #00ffea; }
+    to   { text-shadow: 0 0 20px #00ffea, 0 0 50px #ff00ff; }
+}
+
+/* === Игровое поле === */
+#gameContainer {
+    position: relative;   /* чтобы экраны-меню легли поверх канваса */
+    width: 480px;
+}
+
+canvas {
+    display: block;
+    border: 2px solid #00ffea;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(0, 255, 234, 0.4);
+    background: #050510;
+}
+
+/* === Счёт, волна, жизни — поверх игры === */
+#hud {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    pointer-events: none;   /* не мешать кликам */
+    text-shadow: 0 0 8px #00ffea;
+}
+
+#lives {
+    color: #ff5964;
+    text-shadow: 0 0 8px #ff5964;
+}
+
+/* === Индикатор активного бонуса === */
+#weapon {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 14px;
+    color: #ffd166;
+    text-shadow: 0 0 8px #ffd166;
+    pointer-events: none;
+}
+
+/* === Экраны меню и проигрыша === */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(5, 5, 16, 0.92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;   /* класс-выключатель: добавили — экран исчез */
+}
+
+.overlay h2 {
+    color: #ff00ff;
+    text-shadow: 0 0 15px #ff00ff;
+    letter-spacing: 4px;
+}
+
+.overlay h3 {
+    color: #ffd166;
+}
+
+.small {
+    font-size: 13px;
+    color: #99aadd;
+}
+
+/* === Неоновые кнопки === */
+button {
+    font-family: inherit;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 12px 34px;
+    color: #00ffea;
+    background: transparent;
+    border: 2px solid #00ffea;
+    border-radius: 6px;
+    cursor: pointer;
+    text-shadow: 0 0 8px #00ffea;
+    box-shadow: 0 0 15px rgba(0, 255, 234, 0.4),
+                inset 0 0 10px rgba(0, 255, 234, 0.15);
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: #00ffea;
+    color: #050510;
+    text-shadow: none;
+    box-shadow: 0 0 30px rgba(0, 255, 234, 0.8);
+}
+
+/* === Таблица рекордов === */
+.highscores {
+    list-style: none;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.highscores span {
+    color: #ffd166;
+    margin-right: 10px;
+}
