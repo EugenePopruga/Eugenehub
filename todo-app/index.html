@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Планировщик на месяц</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <h1>Планировщик</h1>
+
+        <div class="calendar-header">
+            <button id="prevMonth">‹</button>
+            <h2 id="monthTitle"></h2>
+            <button id="nextMonth">›</button>
+        </div>
+        <button id="todayBtn" class="today-btn">Сегодня</button>
+
+        <div class="calendar" id="calendar"></div>
+
+        <h3 class="selected-date" id="selectedDateTitle"></h3>
+
+        <div class="day-controls">
+            <span id="taskCounter" class="task-counter"></span>
+            <label class="filter-row">
+                <input type="checkbox" id="filterImportant">
+                Только важные
+            </label>
+        </div>
+
+        <div class="input-row">
+            <input type="text" id="taskInput" placeholder="Что нужно сделать?">
+            <select id="prioritySelect">
+                <option value="normal">Обычное</option>
+                <option value="important">Важное</option>
+                <option value="useful">Полезное</option>
+            </select>
+        </div>
+
+        <div class="input-row">
+            <label class="attach-btn">
+                📷 Прикрепить картинку
+                <input type="file" id="imageInput" accept="image/*" hidden>
+            </label>
+            <span id="imageName"></span>
+            <button id="addBtn">Добавить</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+        <button id="moveBtn" class="move-btn"></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
