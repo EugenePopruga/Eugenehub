@@ -1,0 +1,87 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #2c3e50, #4ca1af);
+  color: #2c3e50;
+  padding: 20px;
+}
+
+.container { max-width: 720px; margin: 0 auto; }
+
+h1 { color: #fff; text-align: center; margin-bottom: 20px; }
+h2 { color: #fff; margin: 24px 0 12px; font-size: 1.1rem; }
+
+.search { display: flex; gap: 8px; }
+.search input {
+  flex: 1; padding: 12px 16px; border: none; border-radius: 10px; font-size: 1rem;
+}
+.search button, .pin-btn {
+  padding: 12px 18px; border: none; border-radius: 10px;
+  background: #ff9f43; color: #fff; font-size: 1rem; cursor: pointer;
+}
+.search button:hover, .pin-btn:hover { background: #ee8b2d; }
+
+.hidden { display: none !important; }
+
+.error {
+  margin-top: 16px; padding: 14px; border-radius: 10px;
+  background: #ff6b6b; color: #fff; text-align: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px; padding: 24px; margin-top: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.current-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.day-night { color: #7f8c8d; margin-top: 4px; }
+
+.current-main { display: flex; align-items: center; gap: 16px; margin: 12px 0; }
+.weather-icon { font-size: 4.5rem; line-height: 1; }
+.temp { font-size: 3rem; font-weight: bold; }
+
+.details {
+  display: flex; flex-wrap: wrap; gap: 10px 24px;
+  padding-top: 12px; border-top: 1px solid #eee;
+}
+
+.clothing { margin-top: 16px; background: #eaf6ff; border-radius: 12px; padding: 14px 18px; }
+.clothing ul { margin: 8px 0 0 18px; }
+.clothing li { margin-top: 4px; }
+
+/* Закреплённые города */
+.pinned { display: flex; flex-wrap: wrap; gap: 8px; }
+.pinned .muted { color: rgba(255,255,255,0.8); }
+.chip {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.9); border-radius: 999px;
+  padding: 8px 14px; cursor: pointer;
+}
+.chip:hover { background: #fff; }
+.chip-del {
+  border: none; background: none; color: #e74c3c;
+  font-size: 1.1rem; cursor: pointer;
+}
+
+/* Почасовой прогноз */
+.hourly { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; }
+.hour-card {
+  min-width: 90px; background: rgba(255,255,255,0.9); border-radius: 12px;
+  padding: 12px 8px; text-align: center;
+}
+.hour-card .h-icon { font-size: 1.8rem; margin: 6px 0; }
+.hour-card .h-temp { font-weight: bold; }
+
+/* Прогноз на дни */
+.daily { display: flex; flex-direction: column; gap: 8px; }
+.day-row {
+  display: grid; grid-template-columns: 1fr 2rem 1fr auto;
+  align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.9); border-radius: 12px; padding: 12px 16px;
+}
+.day-row .d-icon { font-size: 1.6rem; text-align: center; }
+.day-row .d-desc { color: #7f8c8d; font-size: 0.9rem; }
+.day-row .d-temp { font-weight: bold; white-space: nowrap; }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Погодное приложение</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌦️ Погода</h1>
+
+    <div class="search">
+      <input id="city-input" type="text" placeholder="Введите город, например: Москва">
+      <button id="search-btn">Узнать погоду</button>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+
+    <div class="pinned-block">
+      <h2>📌 Закреплённые города</h2>
+      <div id="pinned" class="pinned"></div>
+    </div>
+
+    <div id="result" class="hidden">
+      <div class="card current">
+        <div class="current-top">
+          <div>
+            <h2 id="city-name"></h2>
+            <p id="day-night" class="day-night"></p>
+          </div>
+          <button id="pin-btn" class="pin-btn">📌 Закрепить</button>
+        </div>
+
+        <div class="current-main">
+          <div id="weather-icon" class="weather-icon"></div>
+          <div>
+            <div id="temp" class="temp"></div>
+            <p id="description"></p>
+          </div>
+        </div>
+
+        <div class="details">
+          <div>Ощущается как: <b id="feels-like"></b></div>
+          <div>Влажность: <b id="humidity"></b></div>
+          <div>Ветер: <b id="wind"></b></div>
+          <div>Восход: <b id="sunrise"></b></div>
+          <div>Закат: <b id="sunset"></b></div>
+        </div>
+
+        <div class="clothing">
+          <h3>👕 Как одеться</h3>
+          <ul id="clothing-list"></ul>
+        </div>
+      </div>
+
+      <h2>Ближайшие сутки (шаг 3 часа)</h2>
+      <div id="hourly" class="hourly"></div>
+
+      <h2>Прогноз на 5 дней</h2>
+      <div id="daily" class="daily"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
